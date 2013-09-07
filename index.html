@@ -13,46 +13,55 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">Health Hackers</h1>
-        <p class="header">Hack all the healths!</p>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1 class="header">Health Hackers</h1>
+      <p class="header">Hack all the healths!</p>
+      <ul>
+        <li><a class="buttons github" href="https://github.com/healthhackers">GitHub Profile</a></li>
+        <p><a href="http://twitter.com/healthhackerssf">@healthhackerssf</a></p>
+      </ul>
+      <p class="header">Upcoming Events</p>
+      <div id="events"></div>
+    </header>
+    <section>
+      <h2>What is Health Hackers?</h2>
+      <p>Health Hackers is a group of developers in San working at the intersection of health + technology.</p>
+      <p>Health Hackers hack on a wide array of health tech topics, ranging from Blue Button to human/api. This site aims to be a helpful list of resources for members of the community, both new and existing.</p>
 
+      <p>Is this site missing something you'd like? <a href="https://github.com/healthhackers/healthhackers.github.io">Fork it and submit a pull request</a> or <a href="https://github.com/healthhackers/healthhackers.github.io/issues">open an issue</a>.</p>
 
+      <h2>
+      <a name="resources" class="anchor" href="#resources"><span class="octicon octicon-link"></span></a>Resources</h2>
 
-        <ul>
-          <li><a class="buttons github" href="https://github.com/healthhackers">GitHub Profile</a></li>
-        </ul>
+      <h3>
+      <a name="blue-button" class="anchor" href="#blue-button"><span class="octicon octicon-link"></span></a>Blue Button</h3>
 
-      </header>
-      <section>
-        <p>Health Hackers is a group of developers in San working at the intersection of health + technology.</p>
-
-<p>Health Hackers hack on a wide array of health tech topics, ranging from Blue Button to human/api. This site aims to be a helpful list of resources for members of the community, both new and existing.</p>
-
-<p>Is this site missing something you'd like? <a href="https://github.com/healthhackers/healthhackers.github.io">Fork it and submit a pull request</a> or <a href="https://github.com/healthhackers/healthhackers.github.io/issues">open an issue</a>.</p>
-
-<p><a href="http://twitter.com/healthhackerssf">Follow Health Hackers on Twitter</a></p>
-
-<h2>
-<a name="resources" class="anchor" href="#resources"><span class="octicon octicon-link"></span></a>Resources</h2>
-
-<h3>
-<a name="blue-button" class="anchor" href="#blue-button"><span class="octicon octicon-link"></span></a>Blue Button</h3>
-
-<ul>
-<li>
-<a href="http://blue-button.github.io:">http://blue-button.github.io:</a> A central list of all currently-known providers integrating with Blue Button.</li>
-<li>
-<a href="http://twitter.com/bluebuttondev:">http://twitter.com/bluebuttondev:</a> Official Twitter account for all things Blue Button developer-related.</li>
-</ul>
-      </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
+      <ul>
+      <li>
+      <a href="http://blue-button.github.io:">http://blue-button.github.io:</a> A central list of all currently-known providers integrating with Blue Button.</li>
+      <li>
+      <a href="http://twitter.com/bluebuttondev:">http://twitter.com/bluebuttondev:</a> Official Twitter account for all things Blue Button developer-related.</li>
+      </ul>
+    </section>
+    <footer>
+      <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type='text/javascript' src="http://evbdn.eventbrite.com/s3-s3/static/js/platform/Eventbrite.jquery.js"></script>
+    <script type='text/javascript'>
+    $(document).ready(function(){
+      Eventbrite({'app_key': "7QUHDNGYBBZA5Y5O36"}, function(eb){
+        eb.organizer_list_events( {'id': 4633373155, 'statuses': "live,started"}, function( response ){
+          var eventlist = (eb.utils.eventList( response, eb.utils.eventListRow ));
+          $('#events').html(eventlist);
+        });
+      });
+    });
+    </script>
   </body>
 </html>
